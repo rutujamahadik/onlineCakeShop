@@ -1,0 +1,20 @@
+{%extends "master.html"%}
+
+
+{%block content%}
+<div class="container">
+    <h1>Proceed to Make Payment</h1>
+    <form method="post">
+        {%csrf_token%}
+    <table class="table">
+        <tr><td>Card No</td><td><input type="text" name="cardno" class="form-control"></td></tr>
+        <tr><td>CVV No.</td><td><input type="text" name="cvv" class="form-control"/></td></tr>
+        <tr><td>Expiry</td><td><input type="text" name="expiry" class="form-control"/></td></tr>
+        <tr><td>Total Amount</td><td><input type="text" name="amount" class="form-control" readonly value="{{request.session.total}}"/></td></tr>
+        <tr><td><button type="submit" class="button btn-info">Make Payment</button></td>
+        <td></td></tr>
+    </table>
+</form>
+</div>
+
+{%endblock%}
